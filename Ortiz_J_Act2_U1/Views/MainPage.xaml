@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:Ortiz_J_Act2_U1.ViewModels"
+             x:Class="Ortiz_J_Act2_U1.MainPage">
+    
+    <ContentPage.BindingContext>
+        <vm:MainViewModel/>
+    </ContentPage.BindingContext>
+
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="30,50"
+            Spacing="25"
+            BackgroundColor="DarkSlateGray">
+
+            <Frame
+                WidthRequest="75"
+                HeightRequest="75"
+                CornerRadius="50"
+                Padding="0"
+                IsClippedToBounds="True"
+                HorizontalOptions="Start"
+                VerticalOptions="Center">
+
+                <Image
+                    Source="user_image.png"
+                    HeightRequest="75"
+                    Aspect="AspectFit"
+                    SemanticProperties.Description="Foto de perfil del alumno" />
+                
+            </Frame>
+            
+
+            <VerticalStackLayout
+                Spacing="5"
+                >
+                <Label
+                    Text="Nombre"
+                    FontSize="12"
+                    TextColor="White"
+                    />
+                <Entry
+                    Placeholder="Escribe tu nombre"
+                    ClearButtonVisibility="WhileEditing"
+                    MaxLength="100"
+                    Text="{Binding Name, Mode=TwoWay}"
+                    BackgroundColor="White"
+                    TextColor="Black"
+                    />
+            </VerticalStackLayout>
+            
+            <VerticalStackLayout
+                Spacing="5">
+                <Label
+                    Text="Edad"
+                    FontSize="12"
+                    TextColor="White"
+                    />
+                <Entry
+                    Placeholder="Escribe tu edad"
+                    Keyboard="Numeric"
+                    ClearButtonVisibility="WhileEditing"
+                    MaxLength="3"
+                    Text="{Binding Age, Mode=TwoWay}"
+                    BackgroundColor="White"
+                    TextColor="Black"
+                    />
+            </VerticalStackLayout>
+
+
+            <VerticalStackLayout
+                Spacing="5">
+                <Label
+                    Text="Descripción"
+                    FontSize="12"
+                    TextColor="White"
+                    />
+                <Editor
+                    Placeholder="Escribe una descripcion breve"
+                    MaxLength="250"
+                    AutoSize="TextChanges"
+                    Text="{Binding Description, Mode=TwoWay}"
+                    BackgroundColor="White"
+                    TextColor="Black"
+                    />
+            </VerticalStackLayout>
+
+            <Button
+                Text="Guardar"
+                FontAttributes="Bold"
+                Command="{Binding SaveDataCommand}" 
+                BackgroundColor="LightBlue">
+                <Button.Triggers>
+                    <Trigger TargetType="Button" Property="IsPressed" Value="True">
+                        <Setter Property="BackgroundColor" Value="CadetBlue"/>
+                    </Trigger>
+                </Button.Triggers>
+            </Button>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

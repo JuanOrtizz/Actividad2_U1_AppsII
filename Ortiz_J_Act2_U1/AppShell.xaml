@@ -7,7 +7,7 @@
     Title="Ortiz_J_Act2_U1">
 
     <ShellContent
-        Title="Home"
+        Title="Tu Perfil"
         ContentTemplate="{DataTemplate local:MainPage}"
         Route="MainPage" />
 
